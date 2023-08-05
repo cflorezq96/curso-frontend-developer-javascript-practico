@@ -3,7 +3,8 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const iconMenu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+//const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const cardsContainer = document.querySelector('.cards-container');
 
 // truquito 1
@@ -40,7 +41,7 @@ function toggleDesktopMenu() {
     // pero hay una mejor forma, por eso comentaré todos estos condicionales
     
     desktopMenu.classList.toggle('inactive');
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 
 function toggleMobileMenu() {
@@ -53,25 +54,25 @@ function toggleMobileMenu() {
     // esta parte es para ocultar algún evento que este abierto cuando se vaya abrir otro evento... y no queden los dos sobrepuestos
 
     mobileMenu.classList.toggle('inactive');
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 
 function toggleCarritoAside() {
-    // const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    // const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    // if (!isMobileMenuClosed) {
-    //     mobileMenu.classList.add('inactive');
-            // si está abierto, lo cierro
-    // }
-    // else if (!isDesktopMenuClosed) {
-    //     desktopMenu.classList.add('inactive');
-            // si está abierto, lo cierro
-    // }
-    // esta parte es para ocultar algún evento que este abierto cuando se vaya abrir otro evento... y no queden los dos sobrepuestos
+//     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+//     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+//     if (!isMobileMenuClosed) {
+//         mobileMenu.classList.add('inactive');
+//             //si está abierto, lo cierro
+//     }
+//     else if (!isDesktopMenuClosed) {
+//         desktopMenu.classList.add('inactive');
+//             //si está abierto, lo cierro
+//     }
+//     // esta parte es para ocultar algún evento que este abierto cuando se vaya abrir otro evento... y no queden los dos sobrepuestos
     
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
-    aside.classList.toggle('inactive');
+    shoppingCartContainer.classList.toggle('inactive');
 }
 
 const productList = [];
