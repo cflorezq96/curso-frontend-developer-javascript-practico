@@ -3,8 +3,10 @@ const desktopMenu = document.querySelector('.desktop-menu');
 const iconMenu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 //const aside = document.querySelector('.product-detail');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 const cardsContainer = document.querySelector('.cards-container');
 
 // truquito 1
@@ -27,6 +29,8 @@ const cardsContainer = document.querySelector('.cards-container');
 menuEmail.addEventListener('click', toggleDesktopMenu);
 iconMenu.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
 
 
 function toggleDesktopMenu() {
@@ -55,6 +59,7 @@ function toggleMobileMenu() {
 
     mobileMenu.classList.toggle('inactive');
     shoppingCartContainer.classList.add('inactive');
+    closeProductDetailAside(); //llamamos para funcion para que se cierre el detalle del producto cuando vayamos a abrir el menu (en mobile)
 }
 
 function toggleCarritoAside() {
@@ -72,7 +77,18 @@ function toggleCarritoAside() {
     
     desktopMenu.classList.add('inactive');
     mobileMenu.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
     shoppingCartContainer.classList.toggle('inactive');
+}
+
+function openProductDetailAside() {
+        shoppingCartContainer.classList.add('inactive');
+
+        productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside() {
+        productDetailContainer.classList.add('inactive');
 }
 
 const productList = [];
@@ -100,6 +116,8 @@ function renderProducts(array) {
                 const productImg = document.createElement('img');
                 // product={name, price, image} -> product.image
                 productImg.setAttribute('src', product.image);
+                //productImg.addEventListener('click', console.log); con ese .addeventlistener se ejecuta lo que se quiera, en este caso un console.loog
+                productImg.addEventListener('click', openProductDetailAside);
         
                 const productInfo = document.createElement('div');
                 productInfo.classList.add('product-info');

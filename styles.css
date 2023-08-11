@@ -356,7 +356,8 @@ aside {
         display: none;
     }
 
-    .aside {
+    #productDetail, 
+    #shoppingCartContainer {
         width: 100%;
     }
 
